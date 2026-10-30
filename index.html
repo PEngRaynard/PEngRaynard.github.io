@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raynard Tom Magehema | Flood risk and infrastructure resilience</title>
+<meta name="description" content="Civil engineer and PhD researcher at UCL working on the flood vulnerability of bridges and culverts in data-scarce regions, using satellite imagery and field experience from Tanzania.">
+<link rel="canonical" href="https://pengraynard.github.io/">
+<meta property="og:title" content="Raynard Tom Magehema">
+<meta property="og:description" content="Civil engineer and PhD researcher at UCL: flood vulnerability of bridges and culverts where data is scarce.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pengraynard.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F7F7;
+  --ink:#12232B;
+  --muted:#4A5D66;
+  --river:#1B6B8A;
+  --flood:#C4DEDF;
+  --rule:#CFDCDD;
+  --sun:#C98F0A;
+  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#0F1B21;
+    --ink:#E6EEF0;
+    --muted:#9DB0B8;
+    --river:#6BBAD6;
+    --flood:#1B3843;
+    --rule:#22373F;
+    --sun:#E8B93A;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:1.125rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--river);text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* header */
+header.top{padding:22px 0}
+header.top .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.name{font-family:var(--head);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:22px;flex-wrap:wrap}
+nav a{font-family:var(--head);font-weight:500;font-size:.95rem;color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink);text-decoration:underline}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:56px 0 72px}
+.hero h1{
+  font-family:var(--head);font-weight:700;font-size:clamp(2.1rem,4.6vw,3.4rem);
+  line-height:1.08;letter-spacing:-.015em;margin:0 0 22px;max-width:15em;
+}
+.hero p{max-width:34em;margin:0 0 14px}
+.hero .lede{font-size:1.25rem}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  font-family:var(--head);font-weight:500;font-size:1rem;text-decoration:none;
+  padding:11px 20px;border-radius:3px;border:1.5px solid var(--ink);color:var(--ink);
+}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{border-color:var(--river)}
+.btn.primary:hover{background:var(--river);color:var(--paper)}
+.plan{width:100%;height:auto;display:block;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent);
+  mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent)}
+.plan .flood{stroke:var(--flood);fill:none;stroke-linecap:round;animation:rise 2.4s .3s cubic-bezier(.2,.6,.2,1) both}
+.plan .channel{stroke:var(--river);fill:none;stroke-linecap:round}
+.plan .grid{animation:fadein 1.2s 1.8s ease both}
+.plan .bridge{stroke:var(--ink);stroke-linecap:butt}
+@keyframes rise{from{stroke-width:24}to{stroke-width:112}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .plan .flood,.plan .grid{animation:none}
+}
+
+/* sections */
+section{padding:56px 0;border-top:1px solid var(--rule)}
+section>.wrap{display:grid;grid-template-columns:220px 1fr;gap:48px}
+h2{font-family:var(--head);font-weight:700;font-size:1.5rem;line-height:1.2;margin:0;letter-spacing:-.01em}
+h3{font-family:var(--head);font-weight:700;font-size:1.15rem;line-height:1.3;margin:0 0 4px}
+.stack>*+*{margin-top:30px}
+.stack p{margin:0;max-width:38em}
+.when{font-family:var(--head);font-weight:500;font-size:.95rem;color:var(--muted);margin:0 0 2px}
+.where{color:var(--muted);margin:0 0 6px !important}
+.plain{list-style:none;margin:0;padding:0}
+.plain li+li{margin-top:12px}
+.plain li{max-width:38em}
+.plain .yr{font-family:var(--head);font-weight:500;color:var(--muted);margin-right:.5em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.refs li{padding-left:1.1em;text-indent:-1.1em}
+.stack .note{margin-top:30px;color:var(--muted)}
+.contact-list{list-style:none;margin:0;padding:0}
+.stack .contact-list{margin-top:18px}
+.contact-list li+li{margin-top:8px}
+footer{padding:36px 0 56px;border-top:1px solid var(--rule);color:var(--muted);font-size:.95rem}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:28px;padding:32px 0 48px}
+  .plan-wrap{order:-1;max-width:460px}
+  section>.wrap{grid-template-columns:1fr;gap:22px}
+  .two{grid-template-columns:1fr;gap:28px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="#top">Raynard Tom Magehema</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>Making flood risk to bridges measurable where data is scarce</h1>
+      <p class="lede">I am a civil engineer and PhD researcher at University College London. I have designed bridges and drainage in Tanzania, and I now use satellite imagery to work out which river crossings are most at risk.</p>
+      <p>My work starts from a practical problem: engineers and road agencies have to decide where to spend limited money without the river gauges and damage records that richer countries rely on.</p>
+      <div class="actions">
+        <a class="btn primary" href="Raynard_Magehema_CV.pdf">Download CV</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="plan-wrap">
+      <svg class="plan" viewBox="0 0 560 440" role="img" aria-labelledby="plan-title plan-desc">
+        <title id="plan-title">A river crossing seen from above</title>
+        <desc id="plan-desc">Plan view of a river channel crossed by a bridge, with the wider flood extent shaded around it and a satellite pixel grid over the flooded area.</desc>
+        <defs>
+          <pattern id="px" width="14" height="14" patternUnits="userSpaceOnUse">
+            <rect width="13" height="13" fill="var(--river)" opacity=".16"/>
+          </pattern>
+          <mask id="floodmask">
+            <path d="M-30 360 C 110 360 150 215 285 205 C 410 195 420 105 600 80" stroke="#fff" stroke-width="112" fill="none" stroke-linecap="round"/>
+          </mask>
+        </defs>
+        <path class="flood" d="M-30 360 C 110 360 150 215 285 205 C 410 195 420 105 600 80" stroke-width="112"/>
+        <rect class="grid" x="0" y="0" width="560" height="440" fill="url(#px)" mask="url(#floodmask)"/>
+        <path class="channel" d="M-30 360 C 110 360 150 215 285 205 C 410 195 420 105 600 80" stroke-width="20"/>
+        <g class="bridge">
+          <line x1="268" y1="168" x2="268" y2="246" stroke-width="7"/>
+          <line x1="258" y1="168" x2="278" y2="168" stroke-width="3"/>
+          <line x1="258" y1="246" x2="278" y2="246" stroke-width="3"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <section id="research">
+    <div class="wrap">
+      <h2>Research</h2>
+      <div class="stack">
+        <div>
+          <h3>Flood vulnerability from space</h3>
+          <p>Developing satellite-based ways to judge how flooding affects bridges and culverts in regions with few gauges and little ground survey data.</p>
+        </div>
+        <div>
+          <h3>Fragility and consequences</h3>
+          <p>Linking how likely a structure is to be damaged by a flood to what that damage means for the people and economy that depend on the road.</p>
+        </div>
+        <div>
+          <h3>Resilience of road networks in Tanzania</h3>
+          <p>Looking at river crossings as a network, so that limited budgets go first to the structures whose failure would cut communities off.</p>
+        </div>
+        <div>
+          <h3>Earth observation for agriculture</h3>
+          <p>Exploring how satellite imagery can give smallholder farmers better information about the land they work.</p>
+        </div>
+        <p class="note">This is ongoing PhD work. Details will appear here as papers are published.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <div class="stack">
+        <div>
+          <p class="when">2025 to now</p>
+          <h3>PhD researcher, Civil and Environmental Engineering</h3>
+          <p class="where">University College London</p>
+          <p>Flood fragility and vulnerability of river-crossing infrastructure using remote sensing.</p>
+        </div>
+        <div>
+          <p class="when">2021 to now</p>
+          <h3>Assistant lecturer, Civil Engineering</h3>
+          <p class="where">Ardhi University, Tanzania</p>
+          <p>Teaching structural analysis, bridge design, reinforced concrete design, pavement design and hydrology. I supervise over 120 undergraduates a year and mentor final-year research and design projects.</p>
+        </div>
+        <div>
+          <p class="when">Nov 2023 to Jan 2025</p>
+          <h3>Structural and drainage engineer, TACTIC Project, Kigoma</h3>
+          <p class="where">Selca Consult with SABA Engineering, World Bank-funded</p>
+          <p>Designed a 35 m composite steel bridge to Eurocodes, carried out flood and hydrologic analysis across several return periods, and designed drainage along more than 50 km of road.</p>
+        </div>
+        <div>
+          <p class="when">Oct to Dec 2024</p>
+          <h3>Team leader, bridge and drainage engineering</h3>
+          <p class="where">Selca Consult, Dar es Salaam</p>
+          <p>Led the drainage and hydrology design team for a 1.58 km road upgrade, including flood risk assessments, material investigations and bills of quantities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="wrap">
+      <h2>Publications</h2>
+      <ul class="plain refs">
+        <li>Kutela, B., Kadeha, C., <strong>Magehema, R. T.</strong>, Avelar, R. E. and Alluri, P. (2024). Leveraging a text mining approach to explore the research roadmap and future direction of wrong-way driving crash studies. <a href="https://doi.org/10.1016/j.dim.2023.100044">doi:10.1016/j.dim.2023.100044</a></li>
+        <li>Kutela, B., Mwekh'iga, R. J., Kilaini, A. M., <strong>Magehema, R. T.</strong> and Mbatta, G. (2022). Leveraging social media data to understand the spatial distribution and severity of roadway crashes in Tanzania. <em>Journal of Safety Studies</em>, 7(1). <a href="https://doi.org/10.5296/jss.v7i1.20488">doi:10.5296/jss.v7i1.20488</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education and recognition</h2>
+      <div class="two">
+        <div>
+          <h3>Education</h3>
+          <ul class="plain">
+            <li><span class="yr">2025 to now</span>PhD, Civil and Environmental Engineering, UCL</li>
+            <li><span class="yr">2022 to 2023</span>MSc Structural Engineering, University of Manchester (Distinction)</li>
+            <li><span class="yr">2015 to 2019</span>BSc Civil Engineering, Ardhi University (First Class Honours)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Recognition</h3>
+          <ul class="plain">
+            <li><span class="yr">2026</span>Three Minute Thesis winner, UCL CEGE</li>
+            <li><span class="yr">2025</span>Best PhD Impact Pitch, CEGE Connect Festival</li>
+            <li><span class="yr">2025</span>Chadwick Scholarship, UCL</li>
+            <li><span class="yr">2022</span>Equity and Merit Scholarship, University of Manchester</li>
+            <li>Registered Engineer, Engineers Registration Board of Tanzania; IStructE Student Member</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="stack">
+        <p>I am happy to talk about flood risk, infrastructure in data-scarce regions, and research collaborations or student talks.</p>
+        <ul class="contact-list">
+          <li>Email: <a href="mailto:raynard.magehema.24@ucl.ac.uk">raynard.magehema.24@ucl.ac.uk</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/raynard-magehema-p-eng-t-7a5657175">Raynard Magehema</a></li>
+          <li>GitHub: <a href="https://github.com/PEngRaynard">PEngRaynard</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">London, UK. &copy; 2026 Raynard Tom Magehema.</div>
+</footer>
+
+</body>
+</html>
